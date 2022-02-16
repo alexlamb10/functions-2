@@ -116,17 +116,15 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
-const uniq = (arr, callback) => {
-  for (let i; i < arr.length; i++){
-    for(let j = i+1; arr.length; j++){
+function uniq(arr, callback) {
+  for(let i = 0; i < arr.length; i++){
+    for(let j = i+1; j < arr.length; j++){
       if(arr[i] === arr[j]){
-        arr.splice(i, 1)
-      }else{
-        continue
+        arr.splice(i,1)
       }
     }
   }
-  return console.log(callback())
+  return callback()
 }
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -136,8 +134,8 @@ const uniq = (arr, callback) => {
 */
 
 // CODE HERE
-uniq(names, function(uniqArr){
-  return `The new names array with all the duplicate items removed is ${uniqArr}`
+uniq(names, function(){
+  return console.log(`The new names array with all the duplicate items removed is ${names}`)
 })
 
 
@@ -149,7 +147,11 @@ uniq(names, function(uniqArr){
 */
 
 // CODE HERE 
-
+function each(arr, callback){
+  for(let i = 0; i < arr.length; i++){
+    callback(arr[i], i)
+  }
+}
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -159,7 +161,9 @@ uniq(names, function(uniqArr){
 */
 
 // CODE HERE
-
+each(names, function(item, index){
+  return console.log(`The item at index ${index} is ${item}`)
+})
 
 ////////// PROBLEM 7 //////////
 
@@ -192,15 +196,21 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
-
+function getUserById(arr, userId, callback){
+  arr.forEach(arr => {
+    if(arr.id === userId){
+      callback(arr)
+    }
+  })
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
