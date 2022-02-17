@@ -197,9 +197,9 @@ var users = [
 
 // CODE HERE 
 function getUserById(arr, userId, callback){
-  arr.forEach(arr => {
-    if(arr.id === userId){
-      callback(arr)
+  arr.forEach(currentUser => {
+    if(currentUser.id === userId){
+      callback(currentUser)
     }
   })
 }
