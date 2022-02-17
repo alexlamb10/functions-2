@@ -104,9 +104,8 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
-// const orderTotals = orders.map((price, tax) => {return orders.price * (1 + orders.tax)})
-// console.log(orderTotals)
-
+const orderTotals = orders.map((price, tax) => {return price * (1 + tax)}, orders)
+console.log(orderTotals)
 ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
@@ -124,6 +123,6 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
-const bobsTotal = purchases.filter(purchases => purchases.owner === 'Bob').reduce((acc, purchases) => {return acc + purchases.price})
+const bobsTotal = purchases.filter(purchases => purchases.owner === 'Bob').reduce((acc, purchases) => acc + purchases.price, 0)
 
 console.log(bobsTotal)
